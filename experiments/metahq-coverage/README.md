@@ -1,6 +1,6 @@
 # MetaHQ 수록 범위 검증
 
-상태: **실제 MetaHQ 데이터 검증 미실행**. 현재 제공하는 것은 실험 절차와 가상 데이터로 검증한 집합 비교 도구다. 이 도구는 MetaHQ 전용 파일 파서나 CLI adapter가 아니다.
+상태: **2026-10-11 검증 수행, 2026-10-13 기존 기록을 공개 문서로 정리**. [실제 결과와 근거 범위](results_20261011.md)를 참조한다. 이번 공개 정리에서는 MetaHQ를 재실행하지 않았다. 제공하는 집합 비교 도구는 MetaHQ 전용 파일 파서나 CLI adapter가 아니다.
 
 ## 질문
 
@@ -12,7 +12,7 @@
 
 세 집합은 반드시 같은 식별자 단위와 배포 버전을 사용한다. GSM 결과는 출처가 확인된 GSM→GSE 대응으로 변환한 뒤 연구 단위로 비교한다. donor 수와 GSM 수를 직접 비교하지 않는다.
 
-## 실행 절차
+## 후속 실험의 실행 절차
 
 1. [선정 기준](study_selection.md)을 먼저 확정한다.
 2. [MetaHQ 공식 안내](https://github.com/krishnanlab/meta-hq)에서 도구와 DB를 준비하고 설치 버전·배포 URL·파일 hash를 기록한다.
@@ -36,5 +36,13 @@ inventory 전체를 확인하지 못했으면 `--inventory`를 생략한다. 이
 - `present_but_not_retrieved`: inventory에는 있지만 질의에서 반환되지 않은 대상. 필터·주석 등 원인은 별도 조사한다.
 - `absent_from_inventory`: 제출한 전체 inventory에 없는 대상. 다른 버전이나 원 자원에 없다는 뜻은 아니다.
 - `query_coverage`: 평가 대상 중 조회된 비율. 추출 정확도나 GEO 전체 recall이 아니다.
+
+기존 보고서에서 옮긴 식별자 목록의 교집합은 다음 명령으로 확인할 수 있다. 이는 MetaHQ 재실행이나 전체 DB 미수록 여부의 재검증이 아니다.
+
+```bash
+python3 scripts/compare_coverage.py \
+  --target experiments/metahq-coverage/target.txt \
+  --retrieved experiments/metahq-coverage/retrieved.txt
+```
 
 출력은 입력 SHA-256을 포함한다. 이는 파일 식별용이며 inventory의 완전성을 보증하지 않는다. 실제 실험 결과를 추가할 때 도구·DB 버전, 선정 근거, 질의, 변환 코드, 제한을 함께 공개한다.

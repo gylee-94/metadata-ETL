@@ -1,11 +1,15 @@
-# 공개 평가 집합 선정 계획
+# 비교 대상 연구의 선정과 한계
 
-상태: 계획. 실제 연구 목록은 아직 선정하지 않았다.
+2026-10-11 기존 검토에서 사용한 공개 연구 5건을 사례 집합으로 사용했다. 이번 공개 정리에서 새로운 검색·표집을 수행하지 않았다. 무작위·전수 표본이나 사전 등록된 벤치마크가 아니며, 결과를 MetaHQ 전체의 recall로 일반화할 수 없다. 선정 시점과 세부 포함 기준을 이 저장소에서 독립적으로 재구성하지 않았으므로 선택 편향을 배제할 수 없다.
 
-1. 공개 GEO 검색식, 검색일, 대상 생물종·분석법·공개일 범위를 먼저 기록한다.
-2. 검색 결과 원본과 제외 이유를 보존한다. 결과를 본 뒤 누락 사례만 선택하지 않는다.
-3. 모든 후보를 확인하기 어렵다면 accession 숫자 정렬 후 앞의 N개 등 결정적인 표집 규칙과 N을 사전에 고정한다. 해당 표본의 일반화 한계도 적는다.
-4. 포함 조건을 공개 원문에서 검토하고 링크와 판정 근거를 기록한다.
-5. 내부 고객 목록·비공개 엑셀·회사 평가 라벨을 사용하지 않는다.
+| 공개 연구 | GEO 링크 |
+|---|---|
+| GSE202379 | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE202379) |
+| GSE244832 | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244832) |
+| GSE189600 | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189600) |
+| GSE212837 | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212837) |
+| GSE298719 | [GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE298719) |
 
-목록 확정 후 `accession, public_url, selection_reason, reviewed_at` 필드로 공개 가능한 선정표를 작성한다. 도구 출력과 선정표를 별도로 보관한다.
+공개한 것은 연구 식별자이며 내부 donor 수, case/control/exclude 분류와 메모는 포함하지 않는다. 질의 결과는 RNA-seq 전반을 대상으로 하므로 단일세포·단일핵 연구만을 검색한 결과로 해석하지 않는다.
+
+후속 벤치마크에서는 검색식·검색일·포함 조건·표집 규칙을 먼저 고정하고, 전체 후보와 제외 이유를 보존해야 한다.
